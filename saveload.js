@@ -123,7 +123,7 @@ class SaveLoadManager {
         this.#resetPlayerScore()
         this.#resetPlayerArmor()
 
-        this.getRootPlayer().AddScore(chunk1 - 1) // -1 because rescuing a hostage gives 1 point
+        this.getRootPlayer().AddScore(chunk1 + ((this.getRootPlayer().GetPlayerPawn().GetTeamNumber() == 3) ? -1 : 0)) // -1 because rescuing a hostage gives 1 point
         this.getRootPlayer().GetPlayerPawn().SetArmor(chunk2)
 
         this.#debug(`Saving chunk #${suffix}: score=${chunk1}, armor=${chunk2}`)
