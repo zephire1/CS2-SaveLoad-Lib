@@ -64,6 +64,8 @@ Instance.OnRoundStart(() => {
 ```js
 import { Instance } from "cs_script/point_script"
 
+// Paste saveload.js code here
+
 // Initialize SaveLoadManager
 const saveLoadManager = new SaveLoadManager('mymap')
 
@@ -72,12 +74,21 @@ Instance.OnRoundStart(() => {
     saveLoadManager.onStartRound()
 })
 
-// Save data
-await saveLoadManager.save("Hello World")
+Instance.OnPlayerChat(async ({ text }) => {
+    const [command, ...args] = text.split(' ')
 
-// Load data
-const data = await saveLoadManager.load()
-Instance.Msg(`Loaded: ${data}`)
+    // Save data
+    if (command === '!save') {
+        await saveLoadManager.save(args.join(' '))
+        Instance.Msg('✅ Save complete!')
+    }
+
+    // Load data
+    if (command === '!load') {
+        const data = await saveLoadManager.load()
+        Instance.Msg(`📦 Loaded: ${data}`)
+    }
+})
 ```
 
 ## 📚 API Reference
@@ -194,7 +205,7 @@ These examples demonstrate how to use the library with chat commands (`!save` an
 ```js
 import { Instance } from "cs_script/point_script"
 
-// Import or paste saveload.js code here
+// Paste saveload.js code here
 
 const saveLoadManager = new SaveLoadManager('mymapname')
 
@@ -222,7 +233,7 @@ Instance.OnPlayerChat(async ({ text }) => {
 ```js
 import { Instance } from "cs_script/point_script"
 
-// Import or paste saveload.js code here
+// Paste saveload.js code here
 
 const saveLoadManager = new SaveLoadManager('mymapname')
 
