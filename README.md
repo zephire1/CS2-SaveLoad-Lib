@@ -284,6 +284,7 @@ The library uses CS2's built-in backup system to store data:
 - Always call `saveLoadManager.onStartRound()` in your `OnRoundStart` handler
 - The hostage entity is required for the system to work
 - Large amounts of data may take multiple rounds to save/load
+- The system does not work if the main host player (ID 0) is on the spectator team.
 
 
 ---
