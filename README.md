@@ -14,7 +14,7 @@
 - [Usage Examples](#-usage-examples)
   - [Async/Await Example](#asyncawait-example)
   - [Callback Example](#callback-example)
-- [Advanced Configuration](#-advanced-configuration)
+- [Advanced Configuration](#%EF%B8%8F-advanced-configuration)
 
 ## ✨ Features
 
